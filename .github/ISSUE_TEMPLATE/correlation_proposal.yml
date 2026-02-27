@@ -1,0 +1,57 @@
+name: Correlation Proposal
+description: Propose a cross-dataset correlation analysis
+title: "[Correlation]: "
+labels: ["correlation", "research"]
+body:
+  - type: textarea
+    id: indicators
+    attributes:
+      label: Indicators to Correlate
+      description: Which two (or more) indicators should be analyzed together?
+      placeholder: |
+        - Indicator A: GDP per capita (NY.GDP.PCAP.CD)
+        - Indicator B: Life expectancy (SP.DYN.LE00.IN)
+    validations:
+      required: true
+
+  - type: textarea
+    id: hypothesis
+    attributes:
+      label: Hypothesis
+      description: What relationship do you expect to find, and why?
+      placeholder: Higher GDP per capita is expected to correlate with higher life expectancy because...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: method
+    attributes:
+      label: Suggested Statistical Method
+      description: Which correlation method would be most appropriate?
+      options:
+        - Pearson (linear relationships)
+        - Spearman (monotonic relationships)
+        - Kendall (ordinal/small samples)
+        - Not sure - need guidance
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Geographic and temporal scope of the analysis.
+      placeholder: |
+        - Countries: All countries with available data
+        - Time period: 2010-2023
+    validations:
+      required: false
+
+  - type: textarea
+    id: sdg-relevance
+    attributes:
+      label: SDG Relevance
+      description: Which UN Sustainable Development Goals does this correlation relate to?
+      placeholder: SDG 1 (No Poverty), SDG 3 (Good Health)
+    validations:
+      required: false

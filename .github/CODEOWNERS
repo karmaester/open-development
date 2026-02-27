@@ -1,0 +1,15 @@
+# Default owners for everything
+* @opendevelopment/core-team
+
+# Packages
+packages/db/ @opendevelopment/core-team
+packages/shared-types/ @opendevelopment/core-team
+packages/data-connectors/ @opendevelopment/data-team
+
+# Infrastructure
+infrastructure/ @opendevelopment/core-team
+.github/ @opendevelopment/core-team
+
+# Apps
+apps/backend/ @opendevelopment/backend-team
+apps/frontend/ @opendevelopment/frontend-team

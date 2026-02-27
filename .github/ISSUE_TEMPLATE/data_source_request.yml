@@ -1,0 +1,66 @@
+name: Data Source Request
+description: Request integration with a new data source
+title: "[Data Source]: "
+labels: ["data-source", "enhancement"]
+body:
+  - type: textarea
+    id: source-name
+    attributes:
+      label: Data Source Name
+      description: Name of the organization or data provider.
+      placeholder: e.g., UNESCO Institute for Statistics
+    validations:
+      required: true
+
+  - type: input
+    id: source-url
+    attributes:
+      label: Data Source URL
+      description: Link to the data source or API documentation.
+      placeholder: https://example.org/api/docs
+    validations:
+      required: true
+
+  - type: dropdown
+    id: data-format
+    attributes:
+      label: Data Format
+      description: How is the data accessed?
+      options:
+        - REST API (JSON)
+        - REST API (XML)
+        - SDMX
+        - CSV/Excel download
+        - RSS/Atom feed
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: indicators
+    attributes:
+      label: Key Indicators
+      description: What indicators or data points are available?
+      placeholder: |
+        - GDP by country
+        - Education enrollment rates
+        - Health expenditure per capita
+    validations:
+      required: true
+
+  - type: input
+    id: update-frequency
+    attributes:
+      label: Update Frequency
+      description: How often is the data updated?
+      placeholder: e.g., Annually, Quarterly, Real-time
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Why should this data source be integrated? Which SDGs does it relate to?
+    validations:
+      required: false
