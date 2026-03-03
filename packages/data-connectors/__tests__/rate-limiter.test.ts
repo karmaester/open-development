@@ -28,20 +28,28 @@ describe('TokenBucketRateLimiter', () => {
     });
 
     it('should refill tokens over time', () => {
+      vi.useFakeTimers();
+
+      const timedLimiter = new TokenBucketRateLimiter({
+        maxTokens: 5,
+        refillRate: 5,
+        refillInterval: 1000,
+      });
+
       // Drain all tokens
       for (let i = 0; i < 5; i++) {
-        limiter.tryAcquire();
+        timedLimiter.tryAcquire();
       }
-      expect(limiter.tryAcquire()).toBe(false);
+      expect(timedLimiter.tryAcquire()).toBe(false);
 
       // Advance time by 1 second (should refill 5 tokens)
-      vi.useFakeTimers();
       vi.advanceTimersByTime(1000);
-      vi.useRealTimers();
 
       // Should be able to acquire again after refill
-      // Note: we need a new limiter or manually update lastRefillTime
-      // since Date.now() is not mocked after useRealTimers
+      expect(timedLimiter.tryAcquire()).toBe(true);
+      expect(timedLimiter.getAvailableTokens()).toBe(4);
+
+      vi.useRealTimers();
     });
   });
 
