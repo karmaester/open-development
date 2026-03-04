@@ -5,4 +5,11 @@ module.exports = [
   {
     ignores: ['eslint.config.js', 'commitlint.config.js'],
   },
+  {
+    files: ['packages/eslint-config/**/*.js'],
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+      'no-undef': 'off',
+    },
+  },
 ];
